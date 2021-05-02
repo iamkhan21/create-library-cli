@@ -35,11 +35,13 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-build-${{ env.cache-name }}-${{ matrix.node-version }}-
 
-      - name: Install pnpm and dependencies
+      - name: Install pnpm
         uses: pnpm/action-setup@v2.0.1
         with:
           version: 6.2.3
-          run_install: true
+
+      - name: Install dependencies
+        run: pnpm install
 
       - name: Test
         run: pnpm test
