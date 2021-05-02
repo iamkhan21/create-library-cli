@@ -1,0 +1,17 @@
+# package.json is formatted by package managers, so we ignore it here
+*.*
+
+!*.css
+!*.js
+!*.json
+!*.jsx
+!*.less
+!*.md
+!*.mdx
+!*.ts
+!*.tsx
+!*.yml
+
+/dist/
+/docs/
+/coverage/
