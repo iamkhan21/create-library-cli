@@ -1,1 +1,0 @@
-export { double } from "./double";
