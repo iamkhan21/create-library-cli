@@ -41,7 +41,7 @@ jobs:
           version: 6.2.3
 
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm i --frozen-lockfile
 
       - name: Test
         run: pnpm test
