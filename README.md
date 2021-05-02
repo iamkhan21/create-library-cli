@@ -1,3 +1,3 @@
-# library-template
+# ts-swc-library-template
 
-NodeJS library for detecting is the feature supported by browser
+Template of library project on typescript and bundling with swc
