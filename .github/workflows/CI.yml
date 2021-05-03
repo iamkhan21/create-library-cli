@@ -50,8 +50,12 @@ jobs:
         uses: codecov/codecov-action@v1
 
       - name: Release
-        if: github.event_name == 'push' && (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/next')
+        if: false && github.event_name == 'push' && (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/next')
         run: pnpm semantic-release
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Publish documentation
+        if: ${{ success() }}
+        run: pnpm doc:publish

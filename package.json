@@ -27,10 +27,11 @@
     "format": "run-s format:*",
     "format:prettier": "prettier src/**/*.ts --write",
     "format:lint": "eslint src --ext .ts --fix",
-    "doc": "run-s doc:html doc:watch",
+    "doc:dev": "run-s doc:html doc:watch",
+    "doc:publish": "run-s doc:html doc:host",
     "doc:watch": "open-cli docs/index.html",
     "doc:html": "typedoc",
-    "doc:publish": "gh-pages -m \"[ci skip] Updates\" -d docs",
+    "doc:host": "gh-pages -m \"[ci skip] Updates\" -d docs",
     "prepare": "pnpm build",
     "semantic-release": "semantic-release",
     "test": "jest --coverage && pnpm lint"
