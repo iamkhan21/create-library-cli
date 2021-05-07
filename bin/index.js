@@ -7,9 +7,6 @@ const path = require("path");
 const { exec } = require("child_process");
 
 const immutableFilesForCoping = [
-  "typedoc.json",
-  "tsconfig.json",
-  "jest.config.ts",
   "codecov.yml",
   ".prettierignore",
   ".nvmrc",
@@ -17,12 +14,6 @@ const immutableFilesForCoping = [
   ".eslintrc",
   ".editorconfig",
   ".eslintignore",
-  "swc_configs/main/.swcrc",
-  "swc_configs/module/.swcrc",
-  "src/index.ts",
-  "src/numbers/double.test.ts",
-  "src/numbers/double.ts",
-  ".github/workflows/CI.yml",
 ];
 
 const { QUESTIONS_1, QUESTIONS_2 } = require("./questions");
@@ -148,6 +139,48 @@ function createProjectDirectoryAndInsertFiles({
         license.transform && license.transform(currentYear, authorName),
       to: `${projectPath}/LICENSE`,
     }),
+
+    "",
+    "",
+    "",
+    "",
+    copyFile({
+      from: `${templatePath}/templates/typedoc.json`,
+      to: `${projectPath}/typedoc.json`,
+    }),
+    copyFile({
+      from: `${templatePath}/templates/tsconfig.json`,
+      to: `${projectPath}/tsconfig.json`,
+    }),
+    copyFile({
+      from: `${templatePath}/templates/jest.config.ts`,
+      to: `${projectPath}/jest.config.ts`,
+    }),
+    copyFile({
+      from: `${templatePath}/templates/swc_configs/main/.swcrc`,
+      to: `${projectPath}/swc_configs/main/.swcrc`,
+    }),
+    copyFile({
+      from: `${templatePath}/templates/swc_configs/module/.swcrc`,
+      to: `${projectPath}/swc_configs/module/.swcrc`,
+    }),
+    copyFile({
+      from: `${templatePath}/templates/src/index.ts`,
+      to: `${projectPath}/src/index.ts`,
+    }),
+    copyFile({
+      from: `${templatePath}/templates/src/numbers/double.test.ts`,
+      to: `${projectPath}/src/numbers/double.test.ts`,
+    }),
+    copyFile({
+      from: `${templatePath}/templates/src/numbers/double.ts`,
+      to: `${projectPath}/src/numbers/double.ts`,
+    }),
+
+    copyFile({
+      from: `${templatePath}/templates/CI.yml`,
+      to: `${projectPath}/.github/workflows/CI.yml`,
+    }),
     copyFile({
       from: `${templatePath}/templates/README.md`,
       transform: transformFactory((chunk) => {
@@ -222,10 +255,16 @@ function createProjectDirectoryAndInsertFiles({
   spinner.text = "Installing project dependencies";
   spinner.start();
 
-  await sh(`cd ${projectPath} && npm i`);
+  try {
+    await sh(`cd ${projectPath} && npm i`);
 
-  spinner.stop();
-  console.log(chalk.green("  Dependencies successfully installed."));
+    spinner.stop();
 
-  console.log(chalk.green("  Project ready to use. Have a good time :)"));
+    console.log(chalk.green("  Dependencies successfully installed."));
+    console.log(chalk.green("  Project ready to use. Have a good time :)"));
+  } catch (e) {
+    console.log(chalk.red(`  Error: ${e}`));
+  } finally {
+    spinner.stop();
+  }
 })();

@@ -9,5 +9,6 @@
     "target": "es2020",
     "loose": true,
     "externalHelpers": true
-  }
+  },
+  "exclude": "^.+\\.test.ts$"
 }

@@ -35,7 +35,6 @@
     "prepare": "npm run build",
     "semantic-release": "semantic-release",
     "test": "npm run lint && jest --coverage",
-    "create-library-cli": "node bin/index.js",
     "update:deps": "npx npm-check-updates -i && npm i"
   },
   "dependencies": {},
