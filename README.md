@@ -1,6 +1,6 @@
 # create-library-cli
 
-[![GitHub license](https://img.shields.io/github/license/iamkhan21/create-library-cli?style=flat)](https://github.com/iamkhan21/create-library-cli/blob/master/LICENSE) [![Tests](https://github.com/iamkhan21/create-library-cli/workflows/CI/badge.svg)](https://github.com/iamkhan21/create-library-cli/actions) ![npm](https://img.shields.io/npm/v/javascript-library-template)
+[![GitHub license](https://img.shields.io/github/license/iamkhan21/create-library-cli?style=flat)](https://github.com/iamkhan21/create-library-cli/blob/master/LICENSE) [![Tests](https://github.com/iamkhan21/create-library-cli/workflows/CI/badge.svg)](https://github.com/iamkhan21/create-library-cli/actions) ![npm](https://img.shields.io/npm/v/create-library-cli)
 
 ---
 
