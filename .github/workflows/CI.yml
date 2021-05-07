@@ -25,37 +25,22 @@ jobs:
         with:
           node-version: "${{ steps.nvm.outputs.NVMRC }}"
 
-      - name: Cache pnpm modules
-        uses: actions/cache@v2
-        env:
-          cache-name: cache-pnpm-modules
-        with:
-          path: ~/.pnpm-store
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ matrix.node-version }}-${{ hashFiles('**/package.json') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-${{ matrix.node-version }}-
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2.0.1
-        with:
-          version: 6.2.3
-
       - name: Install dependencies
-        run: pnpm i --frozen-lockfile
+      - run: npm ci
 
       - name: Test
-        run: pnpm test
+        run: npm run test
 
       - name: Code coverage
         uses: codecov/codecov-action@v1
 
       - name: Release
         if: false && github.event_name == 'push' && (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/next')
-        run: pnpm semantic-release
+        run: npm run semantic-release
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publish documentation
         if: ${{ success() }}
-        run: pnpm doc:publish
+        run: npm run doc:publish

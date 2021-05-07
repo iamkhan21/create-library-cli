@@ -1,20 +1,17 @@
 {
-  "name": "create-library-cli",
-  "version": "0.0.0-development",
-  "description": "The interactive CLI will help you create and configure your library project automatically.",
+  "name": "<name>",
+  "version": "1.0.0",
+  "description": "<description>",
   "keywords": [],
   "repository": {
     "type": "git",
-    "url": "https://github.com/iamkhan21/create-library-cli.git"
+    "url": "<repository>"
   },
-  "license": "Apache-2.0",
-  "author": "Ivan Khanevich <ivan.khanevich@gmail.com>",
+  "license": "<license>",
+  "author": "<author>",
   "main": "dist/main/index.js",
   "module": "dist/module/index.js",
   "typings": "dist/typings/index.d.ts",
-  "bin": {
-    "create-library-cli": "./bin/index.js"
-  },
   "files": [
     "dist/",
     "LICENSE",
@@ -41,6 +38,7 @@
     "create-library-cli": "node bin/index.js",
     "update:deps": "npx npm-check-updates -i && npm i"
   },
+  "dependencies": {},
   "devDependencies": {
     "@swc/cli": "0.1.39",
     "@swc/core": "1.2.55",
@@ -48,25 +46,19 @@
     "@types/jest": "26.0.23",
     "@typescript-eslint/eslint-plugin": "4.22.1",
     "@typescript-eslint/parser": "4.22.1",
-    "chalk": "^4.1.1",
     "eslint": "7.25.0",
     "gh-pages": "3.1.0",
-    "inquirer": "^8.0.0",
     "jest": "26.6.3",
     "npm-run-all": "4.1.5",
     "open-cli": "6.0.1",
-    "ora": "^5.4.0",
     "prettier": "2.2.1",
-    "prettier-plugin-packagejson": "2.2.11",
+    "prettier-plugin-packagejson": "2.2.10",
     "rimraf": "3.0.2",
     "semantic-release": "17.4.2",
     "semantic-release-cli": "5.4.3",
     "ts-node": "9.1.1",
     "typedoc": "0.20.36",
     "typescript": "4.2.4"
-  },
-  "engines": {
-    "node": ">=14"
   },
   "renovate": {
     "extends": [
