@@ -142,7 +142,7 @@ function createProjectDirectoryAndInsertFiles({
       to: `${projectPath}/LICENSE`,
     }),
     copyFile({
-      from: `${templatePath}/templates/templates/template_gitignore.txt`,
+      from: `${templatePath}/templates/template_gitignore.txt`,
       to: `${projectPath}/.gitignore`,
     }),
     copyFile({
