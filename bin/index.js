@@ -1,9 +1,10 @@
 const inquirer = require("inquirer");
 const ora = require("ora");
 const chalk = require("chalk");
+
 const fs = require("fs");
-const { Transform } = require("stream");
 const path = require("path");
+const { Transform } = require("stream");
 const { exec } = require("child_process");
 
 const immutableFilesForCoping = [
