@@ -9,9 +9,9 @@
   },
   "license": "Apache-2.0",
   "author": "Ivan Khanevich <ivan.khanevich@gmail.com>",
-  "main": "./bin/index.js",
+  "main": "bin/index.js",
   "bin": {
-    "create-library-cli": "./bin/index.js"
+    "create-library-cli": "bin/index.js"
   },
   "files": [
     "bin/",
