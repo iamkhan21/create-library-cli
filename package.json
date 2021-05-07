@@ -21,7 +21,6 @@
     "codecov.yml",
     ".prettierignore",
     ".nvmrc",
-    ".gitignore",
     ".eslintrc",
     ".editorconfig",
     ".eslintignore"

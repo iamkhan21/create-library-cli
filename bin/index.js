@@ -13,7 +13,6 @@ const immutableFilesForCoping = [
   "codecov.yml",
   ".prettierignore",
   ".nvmrc",
-  ".gitignore",
   ".eslintrc",
   ".editorconfig",
   ".eslintignore",
@@ -142,11 +141,10 @@ function createProjectDirectoryAndInsertFiles({
         license.transform && license.transform(currentYear, authorName),
       to: `${projectPath}/LICENSE`,
     }),
-
-    "",
-    "",
-    "",
-    "",
+    copyFile({
+      from: `${templatePath}/templates/templates/template_gitignore.txt`,
+      to: `${projectPath}/.gitignore`,
+    }),
     copyFile({
       from: `${templatePath}/templates/typedoc.json`,
       to: `${projectPath}/typedoc.json`,
