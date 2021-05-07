@@ -127,7 +127,7 @@ function createProjectDirectoryAndInsertFiles({
 
   const promises = [
     copyFile({
-      from: `${templatePath}/templates/package.json`,
+      from: `${templatePath}/templates/package.txt`,
       transform: transformFactory((chunk) => {
         return chunk
           .toString()
