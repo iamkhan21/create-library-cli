@@ -31,7 +31,7 @@
     "update:deps": "npx npm-check-updates -i && npm i"
   },
   "dependencies": {
-    "chalk": "4.1.1",
+    "chalk": "4.1.2",
     "inquirer": "^8.0.0",
     "ora": "5.4.1"
   },
