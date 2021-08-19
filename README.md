@@ -22,7 +22,6 @@ The interactive CLI will help you create and configure your library project auto
 - [semantic-release](https://semantic-release.gitbook.io/semantic-release/): allows for automatic releases based on semver.org and [conventional commits specification](https://www.conventionalcommits.org/). The defaults are taken from the [Angular git commit guidelines](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#-git-commit-guidelines).
 - [Codecov](https://codecov.io/): launched in the `npm test` script on CI, ensures code coverage does not decrease on pull requests _(free for public and private repositories)_.
 - [Renovate](https://renovate.whitesourcesoftware.com/) configured with the [JavaScript library preset](https://docs.renovatebot.com/presets-config/#configjs-lib): this will automatically update your dependencies by opening pull request for you to approve or not. So you never have to think about it _(free for public and private repositories)_.
-- [TypeDoc](https://typedoc.org/): generate API documentation (HTML or JSON) [without a mess of JSDoc tags](https://blog.cloudflare.com/generating-documentation-for-typescript-projects/) to maintain
 
 
 ## Usage
@@ -38,7 +37,7 @@ Using this CLI requires a bit of setup, but way less than if you had to start fr
 - Setup semantic releases: run `npm install -g semantic-release-cli && semantic-release-cli setup` in a terminal (This will ask for your npm and GitHub credentials)
 - Install dependencies: run `npm i` in your terminal
 - **Develop your library**: change code in `src/`
-- **Test your library**: run `npm jest --watch`
+- **Test your library**: run `npm jest`
 - **Check formatting of your code**: run `npm lint` in your terminal
 - **Fix formatting of your code**: run `npm format` in your terminal
 - **Create your first release**: [open a pull request](https://help.github.com/en/desktop/contributing-to-projects/creating-a-pull-request) on your project, wait for tests to pass, merge and 💥 your library will be automatically released to npm and a GitHub release will be created
@@ -46,25 +45,3 @@ Using this CLI requires a bit of setup, but way less than if you had to start fr
 **Optional steps:** (needed only if you're doing them for the first time)
 
 1. Make sure you have [npm 2fa auth-only](https://docs.npmjs.com/about-two-factor-authentication#authorization-only) configured. Releases can't be automated if you have 2fa setup for both authentication and publish. See https://semantic-release.gitbook.io/semantic-release/usage/ci-configuration#authentication-for-plugins
-
-
-## Generate your API docs
-
-The src folder is analyzed and documentation is automatically generated using [TypeDoc](https://github.com/TypeStrong/typedoc).
-
-```sh
-npm doc:dev
-```
-
-This command generates API documentation for your library in HTML format and opens it in a browser.
-
-Since types are tracked by Typescript, there's no need to indicate types in JSDoc format. For more information, see the [TypeDoc documentation](http://typedoc.org/guides/doccomments/).
-
-To generate and publish your documentation to [GitHub Pages](https://pages.github.com/) use the following command:
-
-```sh
-npm doc:publish
-```
-
-Once published, your documentation should be available at the proper GitHub Pages URL for your repo.
-

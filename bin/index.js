@@ -2,7 +2,7 @@
 
 const inquirer = require("inquirer");
 const ora = require("ora");
-const chalk = require("chalk");
+const chalk = require("colorette");
 
 const fs = require("fs");
 const path = require("path");

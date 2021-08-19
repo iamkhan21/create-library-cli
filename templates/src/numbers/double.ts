@@ -14,7 +14,7 @@
  * console.log(double(5));
  * // => 10
  * ```
- * @param value Number that need to be multiplied by2
+ * @param value Number that need to be multiplied by 2
  */
 export function double(value: number): number {
   return value * 2;
