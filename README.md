@@ -34,7 +34,7 @@ Using this CLI requires a bit of setup, but way less than if you had to start fr
 - [Setup Codecov](https://github.com/apps/codecov) for your new repository. If you previously installed the Codecov application to your account then this is just a box to tick when creating the repository
 - Add the previously generated `GH_TOKEN` and `NPM_TOKEN` secrets to the [GitHub secrets](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets#creating-encrypted-secrets) of the new repository
 - Initiate project `npx create-library-cli`
-- Setup semantic releases: run `npm install -g semantic-release-cli && semantic-release-cli setup` in a terminal (This will ask for your npm and GitHub credentials)
+- Setup semantic releases: run `npx semantic-release-cli setup` in a terminal (This will ask for your npm and GitHub credentials)
 - Install dependencies: run `npm i` in your terminal
 - **Develop your library**: change code in `src/`
 - **Test your library**: run `npm jest`
