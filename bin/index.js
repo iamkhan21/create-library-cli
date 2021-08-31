@@ -5,9 +5,12 @@ import * as chalk from "colorette";
 import fs from "fs";
 import inquirer from "inquirer";
 import ora from "ora";
-import path from "path";
+import path, { dirname } from "path";
 import { Transform } from "stream";
+import { fileURLToPath } from "url";
 import { QUESTIONS_1, QUESTIONS_2 } from "./questions.js";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const immutableFilesForCoping = [
   "codecov.yml",
@@ -142,10 +145,6 @@ function createProjectDirectoryAndInsertFiles({
     copyFile({
       from: `${templatePath}/templates/template_gitignore.txt`,
       to: `${projectPath}/.gitignore`,
-    }),
-    copyFile({
-      from: `${templatePath}/templates/typedoc.json`,
-      to: `${projectPath}/typedoc.json`,
     }),
     copyFile({
       from: `${templatePath}/templates/tsconfig.json`,
