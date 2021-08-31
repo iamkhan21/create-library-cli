@@ -1,4 +1,4 @@
-const QUESTIONS_1 = [
+export const QUESTIONS_1 = [
   {
     name: "project-name",
     type: "input",
@@ -29,7 +29,7 @@ const QUESTIONS_1 = [
   }
 ];
 
-const QUESTIONS_2 = ({ name, email }) => [
+export const QUESTIONS_2 = ({ name, email }) => [
   {
     name: "author-name",
     type: "input",
@@ -49,4 +49,3 @@ const QUESTIONS_2 = ({ name, email }) => [
   },
 ];
 
-module.exports = { QUESTIONS_1, QUESTIONS_2 };

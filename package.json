@@ -1,6 +1,6 @@
 {
   "name": "create-library-cli",
-  "version": "0.0.0-development",
+  "version": "2.0",
   "description": "The interactive CLI will help you create and configure your library project automatically.",
   "keywords": [],
   "repository": {
@@ -9,7 +9,8 @@
   },
   "license": "Apache-2.0",
   "author": "Ivan Khanevich <ivan.khanevich@gmail.com>",
-  "main": "bin/index.js",
+  "type": "module",
+  "exports": "./bin/index.js",
   "bin": {
     "create-library-cli": "bin/index.js"
   },

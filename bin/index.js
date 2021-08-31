@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 
-const inquirer = require("inquirer");
-const ora = require("ora");
-const chalk = require("colorette");
-
-const fs = require("fs");
-const path = require("path");
-const { Transform } = require("stream");
-const { exec } = require("child_process");
+import { exec } from "child_process";
+import * as chalk from "colorette";
+import fs from "fs";
+import inquirer from "inquirer";
+import ora from "ora";
+import path from "path";
+import { Transform } from "stream";
+import { QUESTIONS_1, QUESTIONS_2 } from "./questions.js";
 
 const immutableFilesForCoping = [
   "codecov.yml",
@@ -17,8 +17,6 @@ const immutableFilesForCoping = [
   ".editorconfig",
   ".eslintignore",
 ];
-
-const { QUESTIONS_1, QUESTIONS_2 } = require("./questions");
 
 const transformFactory = (transformFn) =>
   new Transform({
