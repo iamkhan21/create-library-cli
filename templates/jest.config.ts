@@ -7,9 +7,9 @@ export default {
   testPathIgnorePatterns: [
     "<rootDir>/dist/",
     "<rootDir>/node_modules/",
-    "<rootDir>/docs/",
   ],
   transform: {
     "^.+\\.ts$": ["ts-jest"],
   },
+  testMatch: ['**/?(*.)+(spec|test).[jt]s?(x)'],
 };
