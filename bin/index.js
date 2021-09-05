@@ -4,11 +4,11 @@ import { exec } from "child_process";
 import * as chalk from "colorette";
 import fs from "fs";
 import inquirer from "inquirer";
-import ora from "ora";
 import path, { dirname } from "path";
 import { Transform } from "stream";
 import { fileURLToPath } from "url";
 import { QUESTIONS_1, QUESTIONS_2 } from "./questions.js";
+import micoSpinner from "mico-spinner";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -16,9 +16,7 @@ const immutableFilesForCoping = [
   "codecov.yml",
   ".prettierignore",
   ".nvmrc",
-  ".eslintrc",
   ".editorconfig",
-  ".eslintignore",
 ];
 
 const transformFactory = (transformFn) =>
@@ -147,6 +145,14 @@ function createProjectDirectoryAndInsertFiles({
       to: `${projectPath}/.gitignore`,
     }),
     copyFile({
+      from: `${templatePath}/templates/.eslintignore`,
+      to: `${projectPath}/.eslintignore`,
+    }),
+    copyFile({
+      from: `${templatePath}/templates/.eslintrc`,
+      to: `${projectPath}/.eslintrc`,
+    }),
+    copyFile({
       from: `${templatePath}/templates/tsconfig.json`,
       to: `${projectPath}/tsconfig.json`,
     }),
@@ -215,16 +221,12 @@ function createProjectDirectoryAndInsertFiles({
     "project-desc": projectDesc,
   } = await inquirer.prompt(QUESTIONS_1);
 
-  const spinner = ora({
-    text: "Loading github profile...",
-    color: "yellow",
-  });
-  spinner.start();
+  let spinner = micoSpinner("Loading github profile").start();
 
   const { stdout: name } = await sh("git config --get user.name");
   const { stdout: email } = await sh("git config --get user.email");
 
-  spinner.stop();
+  spinner.succeed();
 
   const {
     "author-name": authorName,
@@ -232,8 +234,7 @@ function createProjectDirectoryAndInsertFiles({
     "author-github": authorGithub,
   } = await inquirer.prompt(QUESTIONS_2({ name, email }));
 
-  spinner.text = "The project scaffolding";
-  spinner.start();
+  spinner = micoSpinner("Scaffold the project").start();
 
   const projectPath = path.join(process.cwd(), projectName);
 
@@ -247,22 +248,18 @@ function createProjectDirectoryAndInsertFiles({
     authorGithub,
   });
 
-  spinner.stop();
-  console.log(chalk.green("  The project was successfully scaffolded."));
+  spinner.succeed();
 
-  spinner.text = "Installing project dependencies";
-  spinner.start();
+  spinner = micoSpinner("Installing project dependencies").start();
 
   try {
     await sh(`cd ${projectPath} && npm i`);
 
-    spinner.stop();
+    spinner.succeed();
 
-    console.log(chalk.green("  Dependencies successfully installed."));
-    console.log(chalk.green("  Project ready to use. Have a good time :)"));
+    console.log(chalk.green("Project ready to use. Have a good time :)"));
   } catch (e) {
-    console.log(chalk.red(`  Error: ${e}`));
-  } finally {
-    spinner.stop();
+    spinner.fail();
+    console.log(chalk.red(`Error: ${e}`));
   }
 })();
