@@ -41,7 +41,7 @@
     "prettier": "2.4.0",
     "prettier-plugin-packagejson": "2.2.11",
     "semantic-release": "17.4.7",
-    "semantic-release-cli": "5.4.3"
+    "semantic-release-cli": "5.4.4"
   },
   "engines": {
     "node": ">=14"
