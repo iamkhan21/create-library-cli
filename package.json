@@ -39,7 +39,7 @@
   "devDependencies": {
     "eslint": "7.32.0",
     "prettier": "2.4.0",
-    "prettier-plugin-packagejson": "2.2.11",
+    "prettier-plugin-packagejson": "2.2.12",
     "semantic-release": "17.4.7",
     "semantic-release-cli": "5.4.4"
   },
