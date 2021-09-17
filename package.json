@@ -32,7 +32,7 @@
     "update:deps": "npx npm-check-updates -i && npm i"
   },
   "dependencies": {
-    "colorette": "^1.3.0",
+    "colorette": "^2.0.0",
     "inquirer": "^8.1.2",
     "mico-spinner": "^1.2.2"
   },
