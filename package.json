@@ -22,26 +22,24 @@
     "codecov.yml",
     ".prettierignore",
     ".nvmrc",
-    "templates/.eslintrc",
-    ".editorconfig",
-    "templates/.eslintignore"
+    ".editorconfig"
   ],
   "scripts": {
-    "semantic-release": "semantic-release",
     "create-library-cli": "node bin/index.js",
+    "semantic-release": "semantic-release",
     "update:deps": "npx npm-check-updates -i && npm i"
   },
   "dependencies": {
-    "colorette": "^1.3.0",
-    "inquirer": "^8.1.2",
-    "mico-spinner": "^1.2.2"
+    "inquirer": "^8.1.5",
+    "mico-spinner": "^1.3.0",
+    "nanocolors": "^0.2.12"
   },
   "devDependencies": {
     "eslint": "7.32.0",
-    "prettier": "2.3.2",
-    "prettier-plugin-packagejson": "2.2.11",
-    "semantic-release": "17.4.7",
-    "semantic-release-cli": "5.4.3"
+    "prettier": "2.4.1",
+    "prettier-plugin-packagejson": "2.2.13",
+    "semantic-release": "18.0.0",
+    "semantic-release-cli": "5.4.4"
   },
   "engines": {
     "node": ">=14"

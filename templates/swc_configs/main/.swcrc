@@ -1,4 +1,8 @@
 {
+  "module": {
+    "type": "commonjs",
+    "strict": true
+  },
   "jsc": {
     "parser": {
       "syntax": "typescript",
@@ -6,12 +10,12 @@
       "decorators": false,
       "dynamicImport": false
     },
-    "target": "es2015",
-    "loose": true,
-    "externalHelpers": true
+    "target": "es2016",
+    "minify": {
+      "compress": true,
+      "mangle": true
+    }
   },
-  "module": {
-     "type": "commonjs"
-  },
+  "minify": true,
   "exclude": "^.+\\.test.ts$"
 }

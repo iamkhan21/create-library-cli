@@ -7,8 +7,14 @@
       "dynamicImport": false
     },
     "target": "es2020",
-    "loose": true,
-    "externalHelpers": true
+    "minify": {
+      "compress": {
+        "dead_code": true,
+        "unused": true
+      },
+      "mangle": true
+    }
   },
+  "minify": true,
   "exclude": "^.+\\.test.ts$"
 }

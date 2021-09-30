@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { exec } from "child_process";
-import * as chalk from "colorette";
+import { green, red } from "nanocolors";
 import fs from "fs";
 import inquirer from "inquirer";
 import path, { dirname } from "path";
@@ -257,9 +257,9 @@ function createProjectDirectoryAndInsertFiles({
 
     spinner.succeed();
 
-    console.log(chalk.green("Project ready to use. Have a good time :)"));
+    console.log(green("Project ready to use. Have a good time :)"));
   } catch (e) {
     spinner.fail();
-    console.log(chalk.red(`Error: ${e}`));
+    console.log(red(`Error: ${e}`));
   }
 })();
