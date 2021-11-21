@@ -35,7 +35,7 @@
     "nanocolors": "^0.2.12"
   },
   "devDependencies": {
-    "eslint": "8.2.0",
+    "eslint": "8.3.0",
     "prettier": "2.4.1",
     "prettier-plugin-packagejson": "2.2.15",
     "semantic-release": "18.0.0",
